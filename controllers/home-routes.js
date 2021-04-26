@@ -21,4 +21,13 @@ router.get('/logout', async (req, res) => {
 router.get('/signup', async (req, res) => {
     res.render('signup')
 });
+
+router.get('/create', async (req, res) => {
+    res.render('create')
+});
+
+// router.get('/create', async (req, res) => {
+//     res.render('create')
+// });
+
 module.exports = router;
