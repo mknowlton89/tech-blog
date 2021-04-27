@@ -8,6 +8,11 @@
         <div class="blog-content">
             <p>{{post.content}}</p>
         </div>
+        <div>
+            <button>
+                <a href="/api/posts/{{post.id}}">View Post</a>
+            </button>
+        </div>
     </div>
     {{/each}}
 </div>

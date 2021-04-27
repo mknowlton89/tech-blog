@@ -13,4 +13,28 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        const post = postData.get({ plain: true });
+        let isOwner = false;
+
+        console.log(req.session.user_id);
+        console.log(post.user_id);
+
+        if (req.session.user_id === post.user_id) {
+            isOwner = true;
+        }
+
+        console.log(isOwner);
+
+        res.render('post', {
+            post,
+            isOwner
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 module.exports = router;
