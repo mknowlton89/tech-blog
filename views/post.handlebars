@@ -10,6 +10,9 @@
         <div>
         </div>
     </div>
+    <button>
+        <a>Add a Comment</a>
+    </button>
     {{#if post.comment}}
     <div class="blog-comment">
         <p>This is the blog comment</p>
@@ -18,10 +21,12 @@
     {{/if}}
     {{#if isOwner}}
     <button>
-        <a>Delete Post</a>
+        <a id="delete">Delete Post</a>
     </button>
     <button>
         <a>Edit Post</a>
     </button>
     {{/if}}
 </div>
+
+<script src="/js/delete.js"></script>

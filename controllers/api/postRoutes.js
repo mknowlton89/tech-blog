@@ -37,4 +37,26 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const response = await Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(response);
+    } catch (err) {
+        res.status(400).json(err)
+    };
+
+
+    // if (response.ok) {
+    //     document.location.replace('/');
+    // } else {
+    //     document.location.replace('/dashboard');
+    // }
+});
+
+
+
 module.exports = router;
