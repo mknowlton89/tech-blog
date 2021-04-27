@@ -44,7 +44,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
         console.log(blogPosts);
 
         res.render('dashboard', {
-            blogPosts
+            blogPosts,
+            loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         res.status(400).json(err);
@@ -65,7 +66,9 @@ router.get('/signup', async (req, res) => {
 });
 
 router.get('/create', withAuth, async (req, res) => {
-    res.render('create')
+    res.render('create', {
+        loggedIn: req.session.loggedIn,
+    })
 });
 
 module.exports = router;

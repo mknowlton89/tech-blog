@@ -30,7 +30,8 @@ router.get('/:id', async (req, res) => {
 
         res.render('post', {
             post,
-            isOwner
+            isOwner,
+            loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         res.status(400).json(err);
