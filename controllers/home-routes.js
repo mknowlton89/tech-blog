@@ -3,11 +3,52 @@ const { Post, User, Comment } = require('../models');
 
 
 router.get('/', async (req, res) => {
-    res.render('home')
+    try {
+        const blogData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                },
+            ],
+        });
+
+        const blogPosts = blogData.map((post) => post.get({ plain: true }));
+
+        console.log(blogPosts);
+
+        res.render('home', {
+            blogPosts
+        });
+    } catch (err) {
+        res.status(400).json(err)
+    };
+
 });
 
 router.get('/dashboard', async (req, res) => {
-    res.render('dashboard')
+    try {
+        const blogData = await Post.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
+            include: [
+                {
+                    model: User,
+                },
+            ],
+        });
+
+        const blogPosts = blogData.map((post) => post.get({ plain: true }));
+
+        console.log(blogPosts);
+
+        res.render('dashboard', {
+            blogPosts
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+
 });
 
 router.get('/login', async (req, res) => {

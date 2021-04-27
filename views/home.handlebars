@@ -1,5 +1,16 @@
 <div class="homepage-main">
+    {{#each blogPosts as |post|}}
     <div class="blog-post">
+        <div class="blog-title">
+            <h1>{{post.title}}</h1>
+            <span>Posted By {{post.user.name}} on {{post.date_created}}</span>
+        </div>
+        <div class="blog-content">
+            <p>{{post.content}}</p>
+        </div>
+    </div>
+    {{/each}}
+    {{!-- <div class="blog-post">
         <div class="blog-title">
             <h1>Blog Title</h1>
             <span>Posted By XYZ on 5/8/2021</span>
@@ -16,14 +27,5 @@
         <div class="blog-content">
             <p>This is where the content of the blog post will go. Blah Blah Blah</p>
         </div>
-    </div>
-    <div class="blog-post">
-        <div class="blog-title">
-            <h1>Blog Title</h1>
-            <span>Posted By XYZ on 5/8/2021</span>
-        </div>
-        <div class="blog-content">
-            <p>This is where the content of the blog post will go. Blah Blah Blah</p>
-        </div>
-    </div>
+    </div> --}}
 </div>
