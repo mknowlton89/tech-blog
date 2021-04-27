@@ -3,17 +3,19 @@
     <div class="blog-post">
         <div class="blog-title">
             <h1>{{post.title}}</h1>
-            <span>Posted By {{post.user.name}} on {{post.date_created}}</span>
+            <span>Posted By {{post.user.name}} on {{format_date post.date_created}}</span>
         </div>
         <div class="blog-content">
             <p>{{post.content}}</p>
         </div>
     </div>
-    {{/each}}
+    {{#if post.comment}}
     <div class="blog-comment">
         <p>This is the blog comment</p>
         <p>UserZYX on 5/8/2021</p>
     </div>
+    {{/if}}
+    {{/each}}
     <button>
         <a href="/create">Add New Post</a>
         </button>
