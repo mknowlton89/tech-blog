@@ -38,6 +38,41 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/update/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        const post = postData.get({ plain: true });
+
+        console.log(post);
+
+        res.render('update', {
+            post,
+        });
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.put('/update/:id', async (req, res) => {
+    try {
+        const response = await Post.update(
+            {
+                title: req.body.title,
+                content: req.body.content,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            });
+
+        res.status(200).json(response);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 router.delete('/delete/:id', async (req, res) => {
     try {
         const response = await Post.destroy({
