@@ -4,8 +4,6 @@ const updatePost = async (event) => {
 
     event.preventDefault;
 
-    alert('Update was called');
-
     const url = window.location.href;
     const splitUrl = url.split('/');
     const id = splitUrl[6];
