@@ -69,6 +69,10 @@ button:hover {
     padding-top: 10%;
 }
 
+#comment-div {
+    display: none;
+}
+
 #create-blog-form, #update-blog-form {
     display: flex;
     flex-direction: column;

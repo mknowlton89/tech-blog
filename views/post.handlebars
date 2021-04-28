@@ -10,8 +10,15 @@
         <div>
         </div>
     </div>
+    <div id="comment-div">
+        <h3>Add a Comment</h3>
+        <form>
+            <textarea placeholder="Add your comment here."></textarea>
+            <input type="submit" value="Publish Comment">
+        </form>
+    </div>
     <button>
-        <a>Add a Comment</a>
+        <a id="add-comment">Add a Comment</a>
     </button>
     {{#if post.comment}}
     <div class="blog-comment">
@@ -30,4 +37,5 @@
 </div>
 
 <script src="/js/delete.js"></script>
+<script src="/js/comment.js"></script>
 {{!-- <script src="/js/update.js"></script> --}}
